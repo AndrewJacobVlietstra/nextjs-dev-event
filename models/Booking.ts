@@ -1,12 +1,5 @@
+import type { Booking } from "@/lib/types";
 import mongoose from "mongoose";
-
-// TypeScript interface for Booking document
-export type Booking = {
-	eventId: mongoose.Types.ObjectId;
-	email: string;
-	createdAt: Date;
-	updatedAt: Date;
-};
 
 const BookingSchema = new mongoose.Schema<Booking>(
 	{
