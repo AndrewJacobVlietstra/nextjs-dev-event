@@ -13,8 +13,8 @@ const ExploreBtn = () => {
 			<a href="#events">
 				Explore Events
 				<Image
-					src={"/icons/arrow-down.svg"}
 					alt="Arrow down symbol"
+					src={"/icons/arrow-down.svg"}
 					width={24}
 					height={24}
 				/>
