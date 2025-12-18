@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import { Document, Types } from "mongoose";
 
 export type Event = {
 	title: string;
@@ -17,11 +17,11 @@ export type Event = {
 	tags: string[];
 	createdAt: Date;
 	updatedAt: Date;
-};
+} & Document;
 
 export type Booking = {
-	eventId: mongoose.Types.ObjectId;
+	eventId: Types.ObjectId;
 	email: string;
 	createdAt: Date;
 	updatedAt: Date;
-};
+} & Document;

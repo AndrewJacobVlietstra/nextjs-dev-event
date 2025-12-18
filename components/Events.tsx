@@ -1,14 +1,15 @@
+import { Event } from "@/lib/types";
 import EventCard from "./EventCard";
-import { events } from "@/lib/constants";
 
 type EventsProps = {
-	title?: string;
+	heading?: string;
+	events: Event[];
 };
 
-const Events = ({ title }: EventsProps) => {
-	return (
+const Events = ({ heading, events }: EventsProps) => {
+	return events.length > 0 ? (
 		<div className="mt-20 space-y-7">
-			<h3>{title ?? ""}</h3>
+			{heading && <h3>{heading}</h3>}
 
 			<ul className="events">
 				{events.map((event) => (
@@ -18,6 +19,6 @@ const Events = ({ title }: EventsProps) => {
 				))}
 			</ul>
 		</div>
-	);
+	) : null;
 };
 export default Events;
