@@ -95,7 +95,7 @@
 }
 
 @utility text-gradient {
-	@apply to-blue bg-linear-to-b from-white via-white bg-clip-text font-semibold text-transparent;
+	@apply from-white via-white to-primary bg-linear-to-b bg-clip-text font-semibold text-transparent;
 }
 
 @utility glass {
@@ -140,11 +140,7 @@
 	}
 
 	#explore-btn {
-		@apply border-dark-200 bg-dark-100 flex w-fit cursor-pointer rounded-full border px-8 py-3.5 max-sm:w-full text-center;
-
-		a {
-			@apply flex-center gap-2 text-center w-full;
-		}
+		@apply border-dark-200 bg-dark-100 w-fit cursor-pointer rounded-full border px-8 py-3.5 max-sm:w-full text-center hover:border-primary transition-colors duration-250;
 	}
 
 	header {
@@ -152,6 +148,14 @@
 
 		nav {
 			@apply flex flex-row justify-between mx-auto container sm:px-10 px-5 py-4;
+
+			ul {
+				@apply flex flex-row items-center gap-6;
+
+				a {
+					@apply border-b border-transparent hover:border-primary transition-colors duration-250;
+				}
+			}
 		}
 
 		.logo {
@@ -161,17 +165,13 @@
 				@apply text-xl font-bold italic max-sm:hidden;
 			}
 		}
-
-		ul {
-			@apply flex flex-row items-center gap-6;
-		}
 	}
 
 	.events {
 		@apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10;
 
 		li {
-			@apply list-none;
+			@apply list-none p-1 border rounded-md border-transparent hover:border-primary transition-colors duration-200;
 		}
 	}
 
@@ -179,7 +179,7 @@
 		@apply flex flex-col gap-3;
 
 		.poster {
-			@apply h-[300px] w-full rounded-lg object-cover;
+			@apply h-75 w-full rounded-lg object-cover;
 		}
 
 		.title {
@@ -191,7 +191,7 @@
 		}
 
 		.datetime {
-			@apply text-light-200 flex flex-row flex-wrap items-center gap-4;
+			@apply text-light-200 flex flex-wrap items-center gap-4;
 
 			div {
 				@apply flex gap-2;
@@ -211,7 +211,7 @@
 				@apply flex flex-2 flex-col gap-8 max-lg:w-full;
 
 				.banner {
-					@apply max-h-[457px] w-full rounded-lg object-cover;
+					@apply max-h-114.25 w-full rounded-lg object-cover;
 				}
 
 				.agenda {

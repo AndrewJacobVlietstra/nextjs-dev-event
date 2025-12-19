@@ -1,25 +1,23 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const ExploreBtn = () => {
 	return (
-		<button
-			className="mt-7 mx-auto"
+		<Link
+			href="#events"
+			className="flex-center mt-6 mx-auto gap-2"
 			id="explore-btn"
-			type="button"
-			onClick={() => {}}
 		>
-			<a href="#events">
-				Explore Events
-				<Image
-					alt="Arrow down symbol"
-					src={"/icons/arrow-down.svg"}
-					width={24}
-					height={24}
-				/>
-			</a>
-		</button>
+			<span>Explore Events</span>
+			<Image
+				alt="Arrow down symbol"
+				src={"/icons/arrow-down.svg"}
+				width={24}
+				height={24}
+			/>
+		</Link>
 	);
 };
 export default ExploreBtn;
