@@ -11,6 +11,7 @@ declare global {
 	var mongoose: MongooseCache | undefined;
 }
 
+// Grab database connection string from .env file
 const MONGODB_URI = process.env.MONGODB_URI;
 
 // Initialize the cache on the global object to persist across hot reloads in development

@@ -27,18 +27,24 @@ export async function GET(
 
 		if (!event) {
 			return NextResponse.json(
-				{ message: `No event found with provided slug: ${sanitizedSlug}` },
+				{ message: `No event found with provided slug: ${slug}` },
 				{ status: 404 }
 			);
 		}
 
 		return NextResponse.json(
-			{ message: "Fetched event successfully", event },
+			{ message: "Event fetched successfully", event },
 			{ status: 200 }
 		);
 	} catch (error) {
 		return NextResponse.json(
-			{ message: "An unexpected error occurred", error },
+			{
+				message: "Event fetch failed",
+				error:
+					error instanceof Error
+						? error.message
+						: "Unexpected server error occurred",
+			},
 			{ status: 500 }
 		);
 	}

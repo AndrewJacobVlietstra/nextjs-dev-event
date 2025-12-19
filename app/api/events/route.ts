@@ -93,7 +93,13 @@ export async function GET() {
 		);
 	} catch (error) {
 		return NextResponse.json(
-			{ message: "Events fetch failed", error },
+			{
+				message: "Events fetch failed",
+				error:
+					error instanceof Error
+						? error.message
+						: "Unexpected server error occurred",
+			},
 			{ status: 500 }
 		);
 	}

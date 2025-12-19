@@ -7,7 +7,9 @@ type EventsProps = {
 };
 
 const Events = ({ heading, events }: EventsProps) => {
-	return events.length > 0 ? (
+	if (!events || events.length === 0) return null;
+
+	return (
 		<div className="mt-20 space-y-7">
 			{heading && <h3>{heading}</h3>}
 
@@ -19,6 +21,6 @@ const Events = ({ heading, events }: EventsProps) => {
 				))}
 			</ul>
 		</div>
-	) : null;
+	);
 };
 export default Events;
