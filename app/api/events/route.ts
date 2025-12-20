@@ -12,6 +12,12 @@ export async function POST(req: NextRequest) {
 
 		try {
 			event = Object.fromEntries(formData.entries());
+			event.agenda = JSON.parse(formData.get("agenda") as string);
+			event.tags = JSON.parse(formData.get("tags") as string);
+			event.image = "https://dummyImage.com/dummyimage"; // placeholder img URL to pass validation
+
+			// Validate all event data except image against schema before proceeding to upload image
+			await Event.validate(event);
 		} catch (error) {
 			console.log(error);
 			return NextResponse.json(
@@ -24,9 +30,10 @@ export async function POST(req: NextRequest) {
 			);
 		}
 
+		// Image validation and upload - START
 		const file = formData.get("image") as File;
 
-		if (!file) {
+		if (!file || typeof file === "string") {
 			return NextResponse.json(
 				{ message: "Image file is required" },
 				{ status: 400 }
@@ -50,7 +57,9 @@ export async function POST(req: NextRequest) {
 				)
 				.end(buffer);
 		});
+		// Image validation and upload - END
 
+		// Overwrite placeholder img URL from earlier with uploaded img secure url
 		event.image = (uploadResult as { secure_url: string }).secure_url;
 
 		const createdEvent = await Event.create(event);

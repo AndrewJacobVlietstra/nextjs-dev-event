@@ -226,7 +226,7 @@
 			}
 
 			.booking {
-				@apply flex-1 w-full p-4 border-l border-gray-700;
+				@apply flex-1 w-full p-4 max-lg:border-t lg:border-l border-gray-700;
 
 				.signup-card {
 					@apply bg-dark-100 border-dark-200 card-shadow flex w-full flex-col gap-6 rounded-[10px] border px-5 py-6;
@@ -270,7 +270,7 @@
 			}
 
 			button {
-				@apply bg-primary hover:bg-primary/90 w-full cursor-pointer items-center justify-center rounded-[6px] px-4 py-2.5 text-lg font-semibold text-black;
+				@apply bg-primary/90 hover:bg-primary w-full cursor-pointer items-center justify-center rounded-[6px] px-4 py-2.5 text-lg font-semibold text-black transition-colors duration-250;
 			}
 		}
 	}
