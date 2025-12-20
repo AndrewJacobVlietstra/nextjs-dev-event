@@ -67,9 +67,6 @@ const EventDetailsPage = async ({ params }: EventDetailsPageProps) => {
 
 	if (!event) return notFound();
 
-	const similarEvents: Event[] = await getSimilarEvents(event);
-	console.log(similarEvents);
-
 	const {
 		agenda,
 		audience,
@@ -86,7 +83,8 @@ const EventDetailsPage = async ({ params }: EventDetailsPageProps) => {
 		venue,
 	} = event;
 
-	const bookings = 26;
+	const bookings = 128;
+	const similarEvents: Event[] = await getSimilarEvents(event);
 
 	return (
 		<section id="event">
@@ -154,9 +152,7 @@ const EventDetailsPage = async ({ params }: EventDetailsPageProps) => {
 				<BookEvent bookings={bookings} />
 			</div>
 
-			<div className="flex w-full flex-col gap-4 pt-20">
-				{/* <Events heading="Similar Events" events={similarEvents} /> */}
-			</div>
+			<Events heading="Similar Events" events={similarEvents} />
 		</section>
 	);
 };

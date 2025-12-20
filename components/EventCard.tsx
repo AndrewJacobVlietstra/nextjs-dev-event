@@ -1,14 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Document } from "mongoose";
+import type { Event } from "@/lib/types";
 
-type EventCardProps = {
-	title: string;
-	image: string;
-	slug: string;
-	location: string;
-	date: string;
-	time: string;
-};
+// Fetched objects are lean, plain js objects, Omit Mongoose Document type
+type EventCardProps = Omit<Event, keyof Document>;
 
 const EventCard = ({
 	date,

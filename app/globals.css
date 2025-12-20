@@ -265,7 +265,15 @@
 				@apply flex flex-col gap-2;
 
 				input {
-					@apply bg-dark-200 rounded-[6px] px-5 py-2.5;
+					@apply bg-dark-200 rounded-[6px] px-4 py-2.5 outline-none border border-transparent hover:border-primary/30 focus:border-primary transition-colors duration-220;
+				}
+
+				input:focus + label {
+					@apply left-10 opacity-0;
+				}
+
+				label {
+					@apply absolute top-2.5 left-4 cursor-text text-foreground/45 transition-all duration-200;
 				}
 			}
 

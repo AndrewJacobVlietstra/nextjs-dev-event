@@ -23,7 +23,7 @@ export async function GET(
 
 	try {
 		await connectDB();
-		const event = await Event.findOne({ slug: sanitizedSlug });
+		const event = await Event.findOne({ slug: sanitizedSlug }).lean();
 
 		if (!event) {
 			return NextResponse.json(

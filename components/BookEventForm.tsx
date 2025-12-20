@@ -17,18 +17,20 @@ const BookEventForm = () => {
 			{submitted ? (
 				<p className="text-sm">Thank you for signing up!</p>
 			) : (
-				<form onSubmit={(e) => handleSubmit(e)}>
+				<form className="relative" onSubmit={(e) => handleSubmit(e)}>
 					<div>
-						<label htmlFor="email">Email Address</label>
 						<input
 							required
 							id="email"
 							type="email"
 							name="email"
-							placeholder="Enter your email"
+							// placeholder="Enter your email"
 							onChange={(e) => setEmail(e.target.value)}
 							value={email}
 						/>
+						<label htmlFor="email">
+							{email.length > 0 ? "" : "Enter Your Email"}
+						</label>
 					</div>
 					<button className="button-submit" type="submit">
 						Book Event

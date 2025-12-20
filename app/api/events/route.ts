@@ -89,7 +89,7 @@ export async function GET() {
 	try {
 		await connectDB();
 
-		const events = await Event.find().sort({ createdAt: "descending" });
+		const events = await Event.find().sort({ createdAt: "asc" }).lean();
 
 		return NextResponse.json(
 			{

@@ -11,7 +11,7 @@ export const getSimilarEvents = async (event: TEvent) => {
 		const similarEvents = await Event.find({
 			_id: { $ne: event._id },
 			tags: { $in: event.tags },
-		});
+		}).lean();
 
 		return similarEvents;
 	} catch (error) {
