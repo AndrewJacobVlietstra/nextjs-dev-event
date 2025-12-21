@@ -1,8 +1,7 @@
 import { cn } from "@/lib/utils";
-import { ClassValue } from "clsx";
 
 type SkeletonProps = {
-	className?: ClassValue;
+	className?: string;
 };
 
 const Skeleton = ({ className }: SkeletonProps) => {

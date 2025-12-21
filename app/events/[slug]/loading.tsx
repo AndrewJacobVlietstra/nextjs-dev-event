@@ -1,6 +1,6 @@
 import Skeleton from "@/components/Skeleton";
 
-const EventsLoading = () => {
+const EventDetailsLoading = () => {
 	return (
 		<div>
 			<div className="mb-10">
@@ -21,4 +21,4 @@ const EventsLoading = () => {
 		</div>
 	);
 };
-export default EventsLoading;
+export default EventDetailsLoading;
