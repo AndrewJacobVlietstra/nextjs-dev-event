@@ -1,10 +1,9 @@
-import BookEventForm from "./BookEventForm";
-
 type BookEventProps = {
 	bookings: number;
+	children?: React.ReactNode;
 };
 
-const BookEvent = ({ bookings }: BookEventProps) => {
+const BookEvent = ({ bookings, children }: BookEventProps) => {
 	const isNumber = typeof bookings === "number";
 	const isEmpty = bookings <= 0;
 	const isNonEmpty = bookings > 0;
@@ -24,7 +23,7 @@ const BookEvent = ({ bookings }: BookEventProps) => {
 					</p>
 				)}
 
-				<BookEventForm />
+				{children}
 			</div>
 		</aside>
 	);

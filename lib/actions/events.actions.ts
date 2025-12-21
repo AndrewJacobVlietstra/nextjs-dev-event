@@ -1,8 +1,8 @@
 "use server";
 
-import type { Event as TEvent } from "../types";
+import type { Event as TEvent } from "@/lib/types";
 import Event from "@/models/Event";
-import connectDB from "../connectDB";
+import connectDB from "@/lib/connectDB";
 
 export const getSimilarEvents = async (event: TEvent) => {
 	try {

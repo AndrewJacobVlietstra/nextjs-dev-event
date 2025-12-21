@@ -273,12 +273,15 @@
 				}
 
 				label {
-					@apply absolute top-2.5 left-4 cursor-text text-foreground/45 transition-all duration-200;
+					@apply pointer-events-none absolute top-2.5 left-4 text-foreground/45 transition-all duration-200;
 				}
 			}
 
 			button {
 				@apply bg-primary/90 hover:bg-primary w-full cursor-pointer items-center justify-center rounded-[6px] px-4 py-2.5 text-lg font-semibold text-black transition-colors duration-250;
+			}
+			button:disabled {
+				@apply bg-primary/15 text-foreground/40 cursor-not-allowed;
 			}
 		}
 	}

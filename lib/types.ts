@@ -22,6 +22,7 @@ export type Event = {
 export type Booking = {
 	eventId: Types.ObjectId;
 	email: string;
+	slug: string;
 	createdAt: Date;
 	updatedAt: Date;
 } & Document;

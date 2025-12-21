@@ -1,10 +1,12 @@
 import { notFound } from "next/navigation";
 import { BASE_URL } from "@/lib/constants";
 import { Event } from "@/lib/types";
-import Image from "next/image";
-import BookEvent from "@/components/BookEvent";
 import { getSimilarEvents } from "@/lib/actions/events.actions";
+import BookEvent from "@/components/BookEvent";
+import BookEventForm from "@/components/BookEventForm";
 import Events from "@/components/Events";
+import Image from "next/image";
+import { getBookingsByEventId } from "@/lib/actions/booking.actions";
 
 type EventDetailItemProps = {
 	icon: string;
@@ -81,9 +83,10 @@ const EventDetailsPage = async ({ params }: EventDetailsPageProps) => {
 		title,
 		time,
 		venue,
+		_id,
 	} = event;
 
-	const bookings = 128;
+	const bookings = await getBookingsByEventId(_id);
 	const similarEvents: Event[] = await getSimilarEvents(event);
 
 	return (
@@ -149,7 +152,9 @@ const EventDetailsPage = async ({ params }: EventDetailsPageProps) => {
 				</div>
 
 				{/* Right side - Booking Form */}
-				<BookEvent bookings={bookings} />
+				<BookEvent bookings={bookings as number}>
+					<BookEventForm eventId={_id} slug={slug} />
+				</BookEvent>
 			</div>
 
 			<Events heading="Similar Events" events={similarEvents} />

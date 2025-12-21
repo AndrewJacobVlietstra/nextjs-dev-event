@@ -24,6 +24,12 @@ const BookingSchema = new mongoose.Schema<Booking>(
 				message: "Please provide a valid email address",
 			},
 		},
+		slug: {
+			type: String,
+			required: [true, "Slug is required"],
+			lowercase: true,
+			trim: true,
+		},
 	},
 	{
 		timestamps: true, // Auto-generate createdAt and updatedAt
