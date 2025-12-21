@@ -8,6 +8,8 @@ import BookEventForm from "@/components/BookEventForm";
 import Events from "@/components/Events";
 import Image from "next/image";
 
+export const revalidate = 60; // Revalidate data every 60 seconds
+
 type EventDetailItemProps = {
 	icon: string;
 	alt: string;

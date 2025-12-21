@@ -10,7 +10,7 @@ const Events = ({ heading, events }: EventsProps) => {
 	if (!events || events.length === 0) return null;
 
 	return (
-		<div className="mt-20 space-y-7">
+		<div id="events" className="mt-20 space-y-7">
 			{heading && <h3>{heading}</h3>}
 
 			<ul className="events">

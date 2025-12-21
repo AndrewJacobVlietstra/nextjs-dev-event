@@ -1,10 +1,11 @@
 "use server";
 
+import { cache } from "react";
 import type { Event as TEvent } from "@/lib/types";
 import Event from "@/models/Event";
 import connectDB from "@/lib/connectDB";
 
-export const getSimilarEvents = async (event: TEvent) => {
+export const getSimilarEvents = cache(async (event: TEvent) => {
 	try {
 		await connectDB();
 
@@ -23,4 +24,4 @@ export const getSimilarEvents = async (event: TEvent) => {
 
 		return [];
 	}
-};
+});

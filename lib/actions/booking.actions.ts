@@ -1,5 +1,6 @@
 "use server";
 
+import { cache } from "react";
 import { Types } from "mongoose";
 import Booking from "@/models/Booking";
 import connectDB from "@/lib/connectDB";
@@ -36,16 +37,16 @@ export const createBooking = async (
 	}
 };
 
-export const getBookingsByEventId = async (
-	eventId: string | Types.ObjectId
-) => {
-	try {
-		await connectDB();
+export const getBookingsByEventId = cache(
+	async (eventId: string | Types.ObjectId) => {
+		try {
+			await connectDB();
 
-		const bookings = await Booking.find({ eventId });
+			const bookings = await Booking.find({ eventId });
 
-		return bookings.length;
-	} catch (error) {
-		console.log(error);
+			return bookings.length;
+		} catch (error) {
+			console.log(error);
+		}
 	}
-};
+);
