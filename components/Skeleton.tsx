@@ -8,7 +8,7 @@ const Skeleton = ({ className }: SkeletonProps) => {
 	return (
 		<div
 			className={cn(
-				"animate-pulse w-20 h-10 bg-accent-foreground/90 rounded-lg",
+				"animate-pulse w-20 h-10 bg-primary/15 rounded-lg",
 				className
 			)}
 		/>
