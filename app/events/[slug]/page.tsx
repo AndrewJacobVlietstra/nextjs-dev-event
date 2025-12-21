@@ -2,11 +2,11 @@ import { notFound } from "next/navigation";
 import { BASE_URL } from "@/lib/constants";
 import { Event } from "@/lib/types";
 import { getSimilarEvents } from "@/lib/actions/events.actions";
+import { getBookingsByEventId } from "@/lib/actions/booking.actions";
 import BookEvent from "@/components/BookEvent";
 import BookEventForm from "@/components/BookEventForm";
 import Events from "@/components/Events";
 import Image from "next/image";
-import { getBookingsByEventId } from "@/lib/actions/booking.actions";
 
 type EventDetailItemProps = {
 	icon: string;
