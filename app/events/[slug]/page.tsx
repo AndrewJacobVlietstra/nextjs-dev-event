@@ -1,5 +1,6 @@
-import { notFound } from "next/navigation";
 import { BASE_URL } from "@/lib/constants";
+import { cacheLife } from "next/cache";
+import { notFound } from "next/navigation";
 import { Event } from "@/lib/types";
 import { getSimilarEvents } from "@/lib/actions/events.actions";
 import { getBookingsByEventId } from "@/lib/actions/booking.actions";
@@ -7,8 +8,6 @@ import BookEvent from "@/components/BookEvent";
 import BookEventForm from "@/components/BookEventForm";
 import Events from "@/components/Events";
 import Image from "next/image";
-
-export const revalidate = 60; // Revalidate data every 60 seconds
 
 type EventDetailItemProps = {
 	icon: string;
@@ -63,6 +62,9 @@ const EventTags = ({ tags }: EventTagsProps) => {
 };
 
 const EventDetailsPage = async ({ params }: EventDetailsPageProps) => {
+	"use cache";
+	cacheLife("hours");
+
 	const { slug } = await params;
 
 	const request = await fetch(`${BASE_URL}/api/events/${slug}`);

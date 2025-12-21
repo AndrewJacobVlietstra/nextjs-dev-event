@@ -2,12 +2,13 @@ import Events from "@/components/Events";
 import ExploreBtn from "@/components/ExploreBtn";
 import HomeHeading from "@/components/HomeHeading";
 import { BASE_URL } from "@/lib/constants";
+import { cacheLife } from "next/cache";
 import type { Event } from "@/lib/types";
 
 const HomePage = async () => {
-	const response = await fetch(`${BASE_URL}/api/events`, {
-		next: { revalidate: 60 }, // revalidate every minute
-	});
+	"use cache";
+	cacheLife("hours");
+	const response = await fetch(`${BASE_URL}/api/events`);
 	const { events }: { events: Event[] } = await response.json();
 
 	return (
