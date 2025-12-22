@@ -30,7 +30,7 @@ interface LightRaysProps {
 	className?: string;
 }
 
-const DEFAULT_COLOR = "#ffffff";
+const DEFAULT_COLOR = "#000000";
 
 const hexToRgb = (hex: string): [number, number, number] => {
 	const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -120,6 +120,9 @@ const LightRays: React.FC<LightRaysProps> = ({
 
 	useEffect(() => {
 		if (!containerRef.current) return;
+
+		// Add dark bg immediately to minimize flashing white on page load/refresh
+		containerRef.current.classList.add("bg-background");
 
 		observerRef.current = new IntersectionObserver(
 			(entries) => {
