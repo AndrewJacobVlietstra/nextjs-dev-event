@@ -1,7 +1,7 @@
 const HomeHeading = () => {
 	return (
 		<div>
-			<h1 className="text-center">
+			<h1 className="text-center mt-10">
 				The Hub for Every Dev
 				<br />
 				Event You <i>Can&apos;t</i> Miss
